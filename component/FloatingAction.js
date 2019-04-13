@@ -291,7 +291,8 @@ class FloatingAction extends Component {
           styles.buttonContainer,
           styles[`${position}Button`],
           propStyles,
-          animatedVisibleView
+					animatedVisibleView,
+					this.props.actionButtonStyle
         ]}
         accessible={true}
         accessibilityLabel={'Floating Action Button'}
@@ -351,7 +352,7 @@ class FloatingAction extends Component {
     const sortedActions = actions.sort((a, b) => a.position - b.position);
 
     return (
-      <Animated.View style={actionsStyles} pointerEvents="box-none">
+      <Animated.View style={[actionsStyles, this.props.actionButtonStyle]} pointerEvents="box-none">
         {
           sortedActions.map((action) => {
             const textColor = action.textColor || action.actionsTextColor;
