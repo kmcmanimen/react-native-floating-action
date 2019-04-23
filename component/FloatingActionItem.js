@@ -244,7 +244,7 @@ const styles = StyleSheet.create({
   button: {
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 20,
+    borderRadius: 50,
     shadowOpacity: 0.35,
     shadowOffset: {
       width: 0,
@@ -253,8 +253,8 @@ const styles = StyleSheet.create({
     shadowColor: '#000000',
     shadowRadius: 3,
     elevation: 5,
-    width: 40,
-    height: 40
+    width: 50,
+    height: 50
   },
   iconLogo: {
     resizeMode: 'cover',
