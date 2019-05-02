@@ -143,7 +143,8 @@ class FloatingActionItem extends Component {
     } else if (render) {
       components.push(render({ key: name }));
     } else {
-      components.push(this.renderButton());
+			components.push(this.renderButton());
+			components.push(this.renderText());
     }
 
     return (
