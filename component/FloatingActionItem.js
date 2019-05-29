@@ -143,8 +143,15 @@ class FloatingActionItem extends Component {
     } else if (render) {
       components.push(render({ key: name }));
     } else {
-			components.push(this.renderButton());
-			components.push(this.renderText());
+			components.push(
+				<View 
+					key={name} 
+					style={{ justifyContent: 'center', alignItems: 'center'}}
+				>
+					{this.renderButton()}
+					{this.renderText()}
+				</View>
+			);
     }
 
     return (
@@ -230,7 +237,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     borderRadius: 4,
     height: 22,
-    marginTop: 8
+    marginTop: 2
   },
   leftTextContainer: {
     marginLeft: 14
@@ -239,7 +246,7 @@ const styles = StyleSheet.create({
     marginRight: 14
   },
   text: {
-    fontSize: 14,
+    fontSize: 12,
     lineHeight: 20
   },
   button: {

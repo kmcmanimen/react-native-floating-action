@@ -352,7 +352,10 @@ class FloatingAction extends Component {
     const sortedActions = actions.sort((a, b) => a.position - b.position);
 
     return (
-      <Animated.View style={[actionsStyles, this.props.actionButtonStyle]} pointerEvents="box-none">
+			<Animated.View 
+				style={[actionsStyles, this.props.actionButtonStyle, { alignItems: 'center', left: (DEVICE_WIDTH / 2) - 55 }]} 
+				pointerEvents="box-none"
+			>
         {
           sortedActions.map((action) => {
             const textColor = action.textColor || action.actionsTextColor;
@@ -360,9 +363,9 @@ class FloatingAction extends Component {
 
             return (
               <FloatingActionItem
-                paddingTopBottom={actionsPaddingTopBottom}
-                distanceToEdge={distanceToEdge}
-                key={action.name}
+								paddingTopBottom={actionsPaddingTopBottom}
+								distanceToEdge={distanceToEdge}
+								key={action.name}
                 textColor={textColor}
                 textBackground={textBackground}
                 {...action}
