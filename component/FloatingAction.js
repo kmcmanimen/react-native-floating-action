@@ -347,37 +347,38 @@ class FloatingAction extends Component {
 
     if (active) {
       actionsStyles.push(styles[`${position}ActionsVisible`]);
-    }
 
-    const sortedActions = actions.sort((a, b) => a.position - b.position);
+			const sortedActions = actions.sort((a, b) => a.position - b.position);
 
-    return (
-			<Animated.View 
-				style={[actionsStyles, this.props.actionButtonStyle, { alignItems: 'center', left: (DEVICE_WIDTH / 2) - 55 }]} 
-				pointerEvents="box-none"
-			>
-        {
-          sortedActions.map((action) => {
-            const textColor = action.textColor || action.actionsTextColor;
-            const textBackground = action.textBackground || action.actionsTextBackground;
+			return (
+				<Animated.View 
+					style={[actionsStyles, this.props.actionButtonStyle, { alignItems: 'center', left: (DEVICE_WIDTH / 2) - 55 }]} 
+					pointerEvents="box-none"
+				>
+					{
+						sortedActions.map((action) => {
+							const textColor = action.textColor || action.actionsTextColor;
+							const textBackground = action.textBackground || action.actionsTextBackground;
 
-            return (
-              <FloatingActionItem
-								paddingTopBottom={actionsPaddingTopBottom}
-								distanceToEdge={distanceToEdge}
-								key={action.name}
-                textColor={textColor}
-                textBackground={textBackground}
-                {...action}
-                position={position}
-                active={active}
-                onPress={this.handlePressItem}
-              />
-            );
-          })
-        }
-      </Animated.View>
-    );
+							return (
+								<FloatingActionItem
+									paddingTopBottom={actionsPaddingTopBottom}
+									distanceToEdge={distanceToEdge}
+									key={action.name}
+									textColor={textColor}
+									textBackground={textBackground}
+									{...action}
+									position={position}
+									active={active}
+									onPress={this.handlePressItem}
+								/>
+							);
+						})
+					}
+				</Animated.View>
+			);
+		}
+		return null;
   }
 
   renderTappableBackground() {
